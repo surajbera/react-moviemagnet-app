@@ -1,4 +1,4 @@
-const AppTitle = ({ title, subTitle }) => {
+const PageTitle = ({ title, subTitle }) => {
   return (
     <div>
       <h1>{title}</h1>
@@ -6,4 +6,4 @@ const AppTitle = ({ title, subTitle }) => {
     </div>
   );
 };
-export default AppTitle;
+export default PageTitle;
