@@ -12,4 +12,5 @@ export const apiGet = async (queryString) => {
   return data;
 };
 
-export const fetchShowsData = (query) => apiGet(`/search/shows?q=${query}`);
+export const getShowsByQuery = (query) => apiGet(`/search/shows?q=${query}`);
+export const getPeoplesByQuery = (query) => apiGet(`/search/people?q=${query}`);
