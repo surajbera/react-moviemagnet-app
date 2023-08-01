@@ -5,7 +5,7 @@ const BASE_URL = 'https://api.tvmaze.com';
 
 export const apiGet = async (queryString) => {
   // throw new Error('Something bad happened');
-  customConsoleLog(`${BASE_URL}${queryString}`, '#cffafe');
+  customConsoleLog(`${BASE_URL}${queryString}`, '#15803d');
   const response = await fetch(`${BASE_URL}${queryString}`);
   const data = await response.json();
   await customDelay(1500);

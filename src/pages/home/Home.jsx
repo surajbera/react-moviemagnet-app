@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { getShowsByQuery, getPeoplesByQuery } from '../../services/tvmazeService';
 import SearchForm from '../../components/search-form/SearchForm';
+import ShowsCard from '../../components/shows-card/ShowsCard';
+import PeoplesCard from '../../components/peoples-card/PeoplesCard';
 
 const Home = () => {
   const [showsData, setShowsData] = useState(null);
@@ -15,13 +17,13 @@ const Home = () => {
     try {
       if (searchOption === 'shows') {
         const data = await getShowsByQuery(searchInput);
-        setShowsData(data);
         setPeoplesData(null);
+        setShowsData(data);
         setSearchInput('');
       } else {
         const data = await getPeoplesByQuery(searchInput);
-        setPeoplesData(data);
         setShowsData(null);
+        setPeoplesData(data);
         setSearchInput('');
       }
     } catch (error) {
@@ -39,16 +41,8 @@ const Home = () => {
         setSearchOption={setSearchOption}
       />
 
-      <ul>
-        {showsData &&
-          searchOption === 'shows' &&
-          showsData.map((item) => <li key={item.show.id}>{item.show.name}</li>)}
-      </ul>
-      <ul>
-        {peoplesData &&
-          searchOption === 'peoples' &&
-          peoplesData.map((item) => <li key={item.person.id}>{item.person.name}</li>)}
-      </ul>
+      <ul>{showsData && <ShowsCard showsData={showsData} />}</ul>
+      <ul>{peoplesData && <PeoplesCard peoplesData={peoplesData} />}</ul>
 
       {errorMessage && <p>{errorMessage}</p>}
     </div>
