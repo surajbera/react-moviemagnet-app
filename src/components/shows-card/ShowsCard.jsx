@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import NotFoundImg from '../../assets/not-found.jpg';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
 
@@ -15,7 +14,9 @@ const ShowsCard = ({ data }) => {
         {data.summary ? removeHtmlTags(data.summary) : 'No Summary'}
       </p>
       <div>
-        <Link to={`/show/${data.id}`}>Read More</Link>
+        <a href={`/show/${data.id}`} target='_blank' rel='noreferrer'>
+          Read More
+        </a>
         <button type='button'>Star Me</button>
       </div>
     </div>
