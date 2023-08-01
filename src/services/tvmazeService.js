@@ -6,6 +6,9 @@ const BASE_URL = 'https://api.tvmaze.com';
 
 export const apiGet = async (queryString) => {
   try {
+    // Uncomment the next line to simulate an error:
+    // throw new Error('Custom error for testing purposes');
+
     customConsoleLog(`${BASE_URL}${queryString}`, '#0891b2');
     const response = await axios.get(`${BASE_URL}${queryString}`);
     await customDelay(1500);

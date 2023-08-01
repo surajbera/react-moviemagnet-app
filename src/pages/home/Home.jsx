@@ -10,10 +10,13 @@ const Home = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
   const [searchInput, setSearchInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitHandler = async (evt) => {
     evt.preventDefault();
     if (!searchInput) return;
+
+    setIsLoading(true);
     try {
       setPeoplesData(null);
       setShowsData(null);
@@ -27,10 +30,12 @@ const Home = () => {
       }
 
       setSearchInput('');
+      setIsLoading(false);
     } catch (error) {
       setErrorMessage(error.message);
       setPeoplesData(null);
       setShowsData(null);
+      setIsLoading(false);
     }
   };
 
@@ -43,7 +48,7 @@ const Home = () => {
         searchOption={searchOption}
         setSearchOption={setSearchOption}
       />
-
+      {isLoading && <div>Loading...</div>}
       <ul>{showsData && <ShowsGrid showsData={showsData} />}</ul>
       <ul>{peoplesData && <PeoplesGrid peoplesData={peoplesData} />}</ul>
       {errorMessage && <p>{errorMessage}</p>}
