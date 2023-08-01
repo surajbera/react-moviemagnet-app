@@ -47,6 +47,7 @@ const Home = () => {
         setSearchInput={setSearchInput}
         searchOption={searchOption}
         setSearchOption={setSearchOption}
+        isLoading={isLoading}
       />
       {isLoading && <div>Loading...</div>}
       <ul>{showsData && <ShowsGrid showsData={showsData} />}</ul>

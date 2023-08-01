@@ -7,6 +7,7 @@ const SearchForm = ({
   searchOption,
   setSearchOption,
   setSearchInput,
+  isLoading,
 }) => {
   const searchInputRef = useRef(null);
 
@@ -61,12 +62,23 @@ const SearchForm = ({
           value={searchInput}
           onChange={handleInputChange}
         />
-        <button
-          type='submit'
-          className='text-white absolute right-2.5 bottom-2.5 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
-        >
-          Search
-        </button>
+        {!isLoading && (
+          <button
+            type='submit'
+            className='text-white absolute right-2.5 bottom-2.5 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+          >
+            Search
+          </button>
+        )}
+        {isLoading && (
+          <button
+            disabled
+            type='submit'
+            className='text-white absolute right-2.5 bottom-2.5 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+          >
+            Loading...
+          </button>
+        )}
       </div>
       {/* RADIO BUTTON CONTAINER */}
       <div>
