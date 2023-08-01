@@ -25,7 +25,9 @@ export const getShowDetailData = async (id) => {
     // throw new Error('Custom error for testing purposes');
 
     customConsoleLog(`${BASE_URL}/shows/${id}`, '#3730a3');
-    const response = await axios.get(`${BASE_URL}/shows/${id}`);
+    const response = await axios.get(
+      `${BASE_URL}/shows/${id}?embed[]=seasons&embed[]=cast&embed[]=episodes`
+    );
     await customDelay(1000);
     return response.data;
   } catch (error) {
