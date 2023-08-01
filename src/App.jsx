@@ -11,6 +11,7 @@ import PageLayout from './components/page-layout/PageLayout';
 
 /* styles */
 import './App.css';
+import ShowDetail from './pages/show-detail/ShowDetail';
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
         <Route element={<PageLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/starred' element={<Starred />} />
-          <Route path='*' element={<NotFound />} />
         </Route>
+
+        <Route path='*' element={<NotFound />} />
+        <Route path='/show/:id' element={<ShowDetail />} />
       </Routes>
     </BrowserRouter>
   );

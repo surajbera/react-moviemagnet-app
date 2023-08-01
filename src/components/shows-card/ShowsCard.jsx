@@ -3,8 +3,6 @@ import NotFoundImg from '../../assets/not-found.jpg';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
 
 const ShowsCard = ({ data }) => {
-  console.log();
-
   return (
     <div className='border-2 border-cyan-500 border-solid mb-10'>
       <img
@@ -17,7 +15,7 @@ const ShowsCard = ({ data }) => {
         {data.summary ? removeHtmlTags(data.summary) : 'No Summary'}
       </p>
       <div>
-        <Link to='/'>Read More</Link>
+        <Link to={`/show/${data.id}`}>Read More</Link>
         <button type='button'>Star Me</button>
       </div>
     </div>
