@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { getShowsByQuery, getPeoplesByQuery } from '../../services/tvmazeService';
 import SearchForm from '../../components/search-form/SearchForm';
-import ShowsCard from '../../components/shows-card/ShowsCard';
-import PeoplesCard from '../../components/peoples-card/PeoplesCard';
+import ShowsGrid from '../../components/shows-grid/ShowsGrid';
+import PeoplesGrid from '../../components/peoples-grid/PeoplesGrid';
 
 const Home = () => {
   const [showsData, setShowsData] = useState(null);
@@ -41,9 +41,8 @@ const Home = () => {
         setSearchOption={setSearchOption}
       />
 
-      <ul>{showsData && <ShowsCard showsData={showsData} />}</ul>
-      <ul>{peoplesData && <PeoplesCard peoplesData={peoplesData} />}</ul>
-
+      <ul>{showsData && <ShowsGrid showsData={showsData} />}</ul>
+      <ul>{peoplesData && <PeoplesGrid peoplesData={peoplesData} />}</ul>
       {errorMessage && <p>{errorMessage}</p>}
     </div>
   );

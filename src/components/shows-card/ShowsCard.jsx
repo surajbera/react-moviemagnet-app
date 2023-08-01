@@ -1,5 +1,11 @@
-const ShowsCard = ({ showsData }) => {
-  if (showsData.length === 0) return 'No Results!!!';
-  return showsData.map((item) => <li key={item.show.id}>{item.show.name}</li>);
+import NotFoundImg from '../../assets/not-found.jpg';
+
+const ShowsCard = ({ data }) => {
+  return (
+    <div>
+      <p>{data.name}</p>
+      <img src={data.image?.medium ? data.image.medium : NotFoundImg} alt={data.name} />
+    </div>
+  );
 };
 export default ShowsCard;

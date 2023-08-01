@@ -1,5 +1,13 @@
-const PeoplesCard = ({ peoplesData }) => {
-  if (peoplesData.length === 0) return 'No Results!!!';
-  return peoplesData.map((item) => <li key={item.person.id}>{item.person.name}</li>);
+import NotFoundImg from '../../assets/not-found.jpg';
+
+const PeoplesCard = ({ data }) => {
+  console.log(data);
+
+  return (
+    <div>
+      <p>{data.name}</p>
+      <img src={data.image?.medium ? data.image.medium : NotFoundImg} alt={data.name} />
+    </div>
+  );
 };
 export default PeoplesCard;
