@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import ShowsCard from '../shows-card/ShowsCard';
 
 const STAR = 'STAR';
@@ -17,8 +17,12 @@ const starredItemsReducer = (state, action) => {
 };
 
 const ShowsGrid = ({ showsData }) => {
-  const [starredIds, dispatch] = useReducer(starredItemsReducer, []);
-  console.log(starredIds);
+  const initialStarredIds = JSON.parse(localStorage.getItem('starredIds')) || [];
+  const [starredIds, dispatch] = useReducer(starredItemsReducer, initialStarredIds);
+
+  useEffect(() => {
+    localStorage.setItem('starredIds', JSON.stringify(starredIds));
+  }, [starredIds]);
 
   const dispatchStarToggle = (id) => {
     const isStarred = starredIds.includes(id);
