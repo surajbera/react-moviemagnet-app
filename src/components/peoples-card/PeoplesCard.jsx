@@ -1,8 +1,6 @@
 import NotFoundImg from '../../assets/not-found.jpg';
 
 const PeoplesCard = ({ data }) => {
-  console.log(data);
-
   return (
     <div className='border-2 border-cyan-500 border-solid mb-10'>
       <img
