@@ -15,19 +15,22 @@ const Home = () => {
     evt.preventDefault();
     if (!searchInput) return;
     try {
+      setPeoplesData(null);
+      setShowsData(null);
+
       if (searchOption === 'shows') {
         const data = await getShowsByQuery(searchInput);
-        setPeoplesData(null);
         setShowsData(data);
-        setSearchInput('');
       } else {
         const data = await getPeoplesByQuery(searchInput);
-        setShowsData(null);
         setPeoplesData(data);
-        setSearchInput('');
       }
+
+      setSearchInput('');
     } catch (error) {
       setErrorMessage(error.message);
+      setPeoplesData(null);
+      setShowsData(null);
     }
   };
 

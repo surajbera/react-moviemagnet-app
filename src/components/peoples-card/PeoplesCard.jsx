@@ -1,8 +1,6 @@
 import NotFoundImg from '../../assets/not-found.jpg';
 
 const PeoplesCard = ({ data }) => {
-  console.log(data);
-
   return (
     <div>
       <p>{data.name}</p>
