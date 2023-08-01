@@ -2,7 +2,6 @@ import NotFoundImg from '../../assets/not-found.jpg';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
 
 const ShowsCard = ({ data }) => {
-  console.log(data.id);
   return (
     <div className='border-2 border-cyan-500 border-solid mb-10'>
       <img
