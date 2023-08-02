@@ -2,8 +2,6 @@ import NotFoundImg from '../../assets/not-found.jpg';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
 
 const ShowDetailContent = ({ data }) => {
-  console.log(data);
-
   return (
     <div>
       <img src={data.image.original ? data.image.original : NotFoundImg} alt={data.name} />

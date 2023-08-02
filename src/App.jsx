@@ -1,4 +1,5 @@
 /* libraries */
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /* pages */
@@ -9,16 +10,25 @@ import NotFound from './pages/notfound/NotFound';
 /* components */
 import PageLayout from './components/page-layout/PageLayout';
 
-/* context */
-import { AppContextProvider } from './context/AppContext';
-
 /* styles */
 import './App.css';
 import ShowDetail from './pages/show-detail/ShowDetail';
+import UiTheme from './components/ui-theme/UiTheme';
+import { useAppContext } from './hooks/useAppContext';
 
 function App() {
+  const { uiMode } = useAppContext();
+
+  useEffect(() => {
+    if (uiMode === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [uiMode]);
+
   return (
-    <AppContextProvider>
+    <>
       <BrowserRouter>
         <Routes>
           <Route element={<PageLayout />}>
@@ -30,7 +40,8 @@ function App() {
           <Route path='/show/:id' element={<ShowDetail />} />
         </Routes>
       </BrowserRouter>
-    </AppContextProvider>
+      <UiTheme />
+    </>
   );
 }
 

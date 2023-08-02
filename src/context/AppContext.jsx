@@ -54,8 +54,14 @@ export const AppContextProvider = ({ children }) => {
     dispatch({ type: UNSTAR_SHOW, payload: id });
   };
 
+  const toggleUiMode = () => {
+    dispatch({ type: TOGGLE_UI_MODE });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, starShow, unstarShow }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, starShow, unstarShow, toggleUiMode }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 
