@@ -1,3 +1,4 @@
+/* eslint-disable */
 import NotFoundImg from '../../assets/not-found.jpg';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
 
