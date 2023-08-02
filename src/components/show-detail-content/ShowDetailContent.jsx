@@ -71,11 +71,13 @@ const ShowDetailContent = ({ data }) => {
       <div className='mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
         {data._embedded.cast.map((item) => (
           <div key={item.id} className='text-center'>
-            <img
-              src={item.person.image ? item.person.image.original : NotFoundImg}
-              alt={item.person.name}
-              className='mx-auto rounded-full w-32 h-32'
-            />
+            <div className='mx-auto rounded-full w-20 h-20 overflow-hidden'>
+              <img
+                src={item.person.image ? item.person.image.original : NotFoundImg}
+                alt={item.person.name}
+                className='w-full h-full object-cover'
+              />
+            </div>
             <div className='mt-2 font-semibold'>
               {item.person.name} | {item.character.name}
             </div>
