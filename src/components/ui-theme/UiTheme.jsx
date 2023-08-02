@@ -5,7 +5,7 @@ const UiTheme = () => {
   const { uiMode, toggleUiMode } = useAppContext();
 
   return (
-    <div className='absolute top-[20px] right-[20px]' onClick={() => toggleUiMode()}>
+    <div className='absolute top-[20px] right-[20px] cursor-pointer' onClick={() => toggleUiMode()}>
       {uiMode === 'light' ? (
         <BsFillSunFill size={24} color='#fcd34d' />
       ) : (

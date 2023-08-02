@@ -9,7 +9,7 @@ const MinimalPageLayout = () => {
   return (
     <div className='dark:bg-gray-900 dark:text-gray-300 root-wrapper bg-white text-black'>
       <PageTitle title='Box Office' subTitle='' />
-      <div className='pb-10'>
+      <div className='pb-10 pt-16'>
         <Outlet />
       </div>
     </div>
