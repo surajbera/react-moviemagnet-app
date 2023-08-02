@@ -9,7 +9,7 @@ const UiTheme = () => {
       {uiMode === 'light' ? (
         <BsFillSunFill size={24} color='#fcd34d' />
       ) : (
-        <BsMoonFill size={24} color='#fff' />
+        <BsMoonFill size={18} color='#fff' />
       )}
     </div>
   );
