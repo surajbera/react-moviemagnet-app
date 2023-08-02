@@ -3,6 +3,7 @@ import { getShowsByQuery, getPeoplesByQuery } from '../../services/tvmazeService
 import SearchForm from '../../components/search-form/SearchForm';
 import ShowsGrid from '../../components/shows-grid/ShowsGrid';
 import PeoplesGrid from '../../components/peoples-grid/PeoplesGrid';
+import Loader from '../../components/Loader/Loader';
 
 const Home = () => {
   const [showsData, setShowsData] = useState(null);
@@ -54,7 +55,7 @@ const Home = () => {
       {errorMessage && <p>{errorMessage}</p>}
       <ul>{showsData && <ShowsGrid showsData={showsData} />}</ul>
       <ul>{peoplesData && <PeoplesGrid peoplesData={peoplesData} />}</ul>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
     </>
   );
 };

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { getShowById } from '../../services/tvmazeService';
 import { useEffect, useState } from 'react';
 import ShowDetailContent from '../../components/show-detail-content/ShowDetailContent';
+import Loader from '../../components/Loader/Loader';
 
 const ShowDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,7 @@ const ShowDetail = () => {
   return (
     <div>
       {errorMessage && <p>{errorMessage}</p>}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {showDetail && <ShowDetailContent data={showDetail} />}
     </div>
   );

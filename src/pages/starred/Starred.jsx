@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useAppContext } from '../../hooks/useAppContext';
 import { getShowById } from '../../services/tvmazeService';
+import ShowsCard from '../../components/shows-card/ShowsCard';
+import Loader from '../../components/Loader/Loader';
+import EmptyStarredPage from '../../components/empty-starred-page/EmptyStarredPage';
 
 const Starred = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,14 +36,16 @@ const Starred = () => {
 
   return (
     <div>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {isError && <div>An error occurred: {isError}</div>}
-      {!isLoading && starredShows.length === 0 && 'No shows starred'}
+      {!isLoading && starredShows.length === 0 && <EmptyStarredPage />}
       {starredShows.length > 0 && (
-        <div>
-          {starredShows.map((show) => (
-            <div key={show.id}>{show.name}</div>
-          ))}
+        <div className='max-w-screen-xl mx-auto px-4'>
+          <div className='grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 dark:gap-6'>
+            {starredShows.map((show) => (
+              <ShowsCard key={show.id} data={show} />
+            ))}
+          </div>
         </div>
       )}
     </div>
