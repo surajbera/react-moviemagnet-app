@@ -9,23 +9,28 @@ import NotFound from './pages/notfound/NotFound';
 /* components */
 import PageLayout from './components/page-layout/PageLayout';
 
+/* context */
+import { AppContextProvider } from './context/AppContext';
+
 /* styles */
 import './App.css';
 import ShowDetail from './pages/show-detail/ShowDetail';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<PageLayout />}>
-          <Route path='/' element={<Home />} />
-          <Route path='/starred' element={<Starred />} />
-        </Route>
+    <AppContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<PageLayout />}>
+            <Route path='/' element={<Home />} />
+            <Route path='/starred' element={<Starred />} />
+          </Route>
 
-        <Route path='*' element={<NotFound />} />
-        <Route path='/show/:id' element={<ShowDetail />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path='*' element={<NotFound />} />
+          <Route path='/show/:id' element={<ShowDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </AppContextProvider>
   );
 }
 
