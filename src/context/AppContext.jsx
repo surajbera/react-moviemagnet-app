@@ -1,42 +1,65 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
+import { customConsoleLog } from '../utils/customConsoleLog';
 
 export const AppContext = createContext();
 
+const STAR_SHOW = 'STAR_SHOW';
+const UNSTAR_SHOW = 'UNSTAR_SHOW';
+const TOGGLE_UI_MODE = 'TOGGLE_UI_MODE';
+
+/* get starredIds from localStorage if present */
+const storedStarredIds = localStorage.getItem('starredIds');
+
+const initialState = {
+  starredIds: storedStarredIds ? JSON.parse(storedStarredIds) : [],
+  uiMode: 'dark',
+};
+
+const appReducer = (state, action) => {
+  switch (action.type) {
+    case STAR_SHOW:
+      return {
+        ...state,
+        starredIds: [...state.starredIds, action.payload],
+      };
+    case UNSTAR_SHOW:
+      return {
+        ...state,
+        starredIds: state.starredIds.filter((item) => item !== action.payload),
+      };
+    case TOGGLE_UI_MODE:
+      return {
+        ...state,
+        uiMode: state.uiMode === 'dark' ? 'light' : 'dark',
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const AppContextProvider = ({ children }) => {
-  const STAR = 'STAR';
-  const UNSTAR = 'UNSTAR';
-  const UI_MODE = 'UI_MODE';
-
-  const initialState = {
-    starredIds: [],
-    uiMode: 'dark',
-  };
-
-  const appReducer = (state, action) => {
-    switch (action.type) {
-      case STAR:
-        return {
-          ...state,
-          starredIds: [...state.starredIds, action.payload],
-        };
-      case UNSTAR:
-        return {
-          ...state,
-          starredIds: state.starredIds.filter((item) => item !== action.payload),
-        };
-      case UI_MODE:
-        return {
-          ...state,
-          uiMode: action.payload,
-        };
-
-      default:
-    }
-  };
-
   const [state, dispatch] = useReducer(appReducer, initialState);
 
-  console.log(state);
+  useEffect(() => {
+    localStorage.setItem('starredIds', JSON.stringify(state.starredIds));
+  }, [state.starredIds]);
 
-  return <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>;
+  customConsoleLog('State inside AppContext', '#d4d4d8');
+
+  const starShow = (id) => {
+    dispatch({ type: STAR_SHOW, payload: id });
+  };
+
+  const unstarShow = (id) => {
+    dispatch({ type: UNSTAR_SHOW, payload: id });
+  };
+
+  return (
+    <AppContext.Provider value={{ ...state, starShow, unstarShow }}>{children}</AppContext.Provider>
+  );
 };
+
+/* 
+  The use of useReducer ensures that the state is updated immutably, so the reference to the starredIds array will only change when the STAR or UNSTAR actions are dispatched. This means that the useEffect hook should only run when the starredIds array is actually modified, not on every re-render.
+*/
