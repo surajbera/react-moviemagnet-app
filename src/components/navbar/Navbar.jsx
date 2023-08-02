@@ -13,7 +13,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className='text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 mb-4 max-w-fit mx-auto my-4'>
+    <nav className='text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 mb-4 max-w-fit mx-auto mt-6 lg:mt-8'>
       <ul className='flex flex-wrap -mb-px w-full'>
         {LINKS.map((link) => (
           <li key={link.text}>
