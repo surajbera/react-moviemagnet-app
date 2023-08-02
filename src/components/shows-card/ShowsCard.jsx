@@ -1,7 +1,22 @@
+/* eslint-disable */
 import NotFoundImg from '../../assets/not-found.jpg';
+import { useAppContext } from '../../hooks/useAppContext';
 import { removeHtmlTags } from '../../utils/removeHtmlTags';
+import { AiTwotoneStar, AiOutlineStar } from 'react-icons/ai';
 
-const ShowsCard = ({ data, dispatchStarToggle }) => {
+const ShowsCard = ({ data }) => {
+  const { starShow, unstarShow, starredIds } = useAppContext();
+
+  const buttonClasses = 'border-2 border-gray-500 bg-transparent rounded-lg px-6 py-2';
+
+  const handleStarToggle = (id) => {
+    if (starredIds.includes(data.id)) {
+      unstarShow(data.id);
+    } else {
+      starShow(data.id);
+    }
+  };
+
   return (
     <div className='border-2 border-cyan-500 border-solid mb-10'>
       <img
@@ -17,12 +32,8 @@ const ShowsCard = ({ data, dispatchStarToggle }) => {
         <a href={`/show/${data.id}`} target='_blank' rel='noreferrer'>
           Read More
         </a>
-        <button
-          onClick={() => dispatchStarToggle(data.id)}
-          type='button'
-          className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'
-        >
-          Star Me
+        <button type='button' className={buttonClasses} onClick={() => handleStarToggle(data.id)}>
+          {starredIds.includes(data.id) ? <AiTwotoneStar size={26} /> : <AiOutlineStar size={26} />}
         </button>
       </div>
     </div>
