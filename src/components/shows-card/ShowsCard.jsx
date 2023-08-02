@@ -18,7 +18,7 @@ const ShowsCard = ({ data }) => {
   };
 
   return (
-    <div className='mb-10'>
+    <div className='border-2 border-solid border-gray-300 rounded-lg p-2 dark:border-none dark:p-0'>
       <div className='w-[200px] mx-auto mb-2 h-[300px] max-w-full'>
         <img
           src={data.image?.medium ? data.image.medium : NotFoundImg}
