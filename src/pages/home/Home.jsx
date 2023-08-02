@@ -40,20 +40,22 @@ const Home = () => {
   };
 
   return (
-    <div className='max-w-2xl px-4 mx-auto'>
-      <SearchForm
-        onSubmitHandler={onSubmitHandler}
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        searchOption={searchOption}
-        setSearchOption={setSearchOption}
-        isLoading={isLoading}
-      />
-      {isLoading && <div>Loading...</div>}
+    <>
+      <div className='max-w-2xl px-4 mx-auto mb-10'>
+        <SearchForm
+          onSubmitHandler={onSubmitHandler}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          searchOption={searchOption}
+          setSearchOption={setSearchOption}
+          isLoading={isLoading}
+        />
+      </div>
+      {errorMessage && <p>{errorMessage}</p>}
       <ul>{showsData && <ShowsGrid showsData={showsData} />}</ul>
       <ul>{peoplesData && <PeoplesGrid peoplesData={peoplesData} />}</ul>
-      {errorMessage && <p>{errorMessage}</p>}
-    </div>
+      {isLoading && <div>Loading...</div>}
+    </>
   );
 };
 export default Home;

@@ -7,7 +7,6 @@ const STAR_SHOW = 'STAR_SHOW';
 const UNSTAR_SHOW = 'UNSTAR_SHOW';
 const TOGGLE_UI_MODE = 'TOGGLE_UI_MODE';
 
-/* get starredIds from localStorage if present */
 const storedStarredIds = localStorage.getItem('starredIds');
 
 const initialState = {

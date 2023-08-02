@@ -1,3 +1,4 @@
 export const removeHtmlTags = (inputString) => {
-  return inputString.replace(/<\/?[^>]+>/g, '');
+  const cleanSummary = inputString.replace(/<\/?[^>]+>/g, '');
+  return cleanSummary.length > 100 ? `${cleanSummary.substring(0, 120)}...` : `${cleanSummary}...`;
 };
