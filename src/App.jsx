@@ -9,6 +9,7 @@ import NotFound from './pages/notfound/NotFound';
 
 /* components */
 import PageLayout from './components/page-layout/PageLayout';
+import MinimalPageLayout from './components/minimal-page-layout/MinimalPageLayout';
 
 /* styles */
 import './App.css';
@@ -36,8 +37,10 @@ function App() {
             <Route path='/starred' element={<Starred />} />
           </Route>
 
-          <Route path='*' element={<NotFound />} />
-          <Route path='/show/:id' element={<ShowDetail />} />
+          <Route element={<MinimalPageLayout />}>
+            <Route path='*' element={<NotFound />} />
+            <Route path='/show/:id' element={<ShowDetail />} />
+          </Route>
         </Routes>
       </BrowserRouter>
       <UiTheme />
