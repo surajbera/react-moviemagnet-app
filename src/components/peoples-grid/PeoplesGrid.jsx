@@ -1,7 +1,9 @@
+import EmptyResults from '../empty-results/EmptyResults';
 import PeoplesCard from '../peoples-card/PeoplesCard';
 
 const PeoplesGrid = ({ peoplesData }) => {
-  if (peoplesData.length === 0) return 'No Results!!!';
+  if (peoplesData.length === 0) return <EmptyResults />;
+
   // return peoplesData.map((item) => <PeoplesCard key={item.person.id} data={item.person} />);
 
   return (
