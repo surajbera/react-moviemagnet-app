@@ -5,7 +5,7 @@ import { removeHtmlTags } from '../../utils/removeHtmlTags';
 import { AiTwotoneStar, AiOutlineStar } from 'react-icons/ai';
 
 const ShowsCard = ({ data }) => {
-  const { starShow, unstarShow, starredIds } = useAppContext();
+  const { starShow, unstarShow, starredIds, uiMode } = useAppContext();
 
   const buttonClasses = 'border-2 border-gray-600 bg-transparent rounded-lg px-6 py-2';
 
@@ -37,11 +37,11 @@ const ShowsCard = ({ data }) => {
           href={`/show/${data.id}`}
           target='_blank'
           rel='noreferrer'
-          class='inline-flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700'
+          className='inline-flex items-center font-medium text-lightPrimary-600 hover:text-lightPrimary-800 dark:text-darkPrimary-500 dark:hover:text-darkPrimary-700'
         >
           Read More
           <svg
-            class='w-2.5 h-2.5 ml-2'
+            className='w-2.5 h-2.5 ml-2'
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -49,16 +49,16 @@ const ShowsCard = ({ data }) => {
           >
             <path
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
               d='m1 9 4-4-4-4'
             />
           </svg>
         </a>
         <button type='button' className={buttonClasses} onClick={() => handleStarToggle(data.id)}>
           {starredIds.includes(data.id) ? (
-            <AiTwotoneStar size={26} color='#fde047' />
+            <AiTwotoneStar size={26} color={uiMode === 'dark' ? '#fde047' : '#4f46e5'} />
           ) : (
             <AiOutlineStar size={26} />
           )}

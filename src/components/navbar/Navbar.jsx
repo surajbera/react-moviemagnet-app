@@ -21,7 +21,7 @@ const Navbar = () => {
               to={link.to}
               className={({ isActive }) =>
                 isActive
-                  ? 'inline-block py-3 px-5 text-primary-600 border-b-2 border-primary-600 rounded-t-lg active dark:text-primary-500 dark:border-primary-500'
+                  ? 'inline-block py-3 px-5 text-lightPrimary-600 border-b-2 border-lightPrimary-600 rounded-t-lg active dark:text-darkPrimary-500 dark:border-darkPrimary-500'
                   : 'inline-block py-3 px-5 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'
               }
             >

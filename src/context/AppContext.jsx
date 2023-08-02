@@ -11,7 +11,7 @@ const storedStarredIds = localStorage.getItem('starredIds');
 
 const initialState = {
   starredIds: storedStarredIds ? JSON.parse(storedStarredIds) : [],
-  uiMode: 'dark',
+  uiMode: 'light',
 };
 
 const appReducer = (state, action) => {

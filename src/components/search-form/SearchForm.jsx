@@ -56,7 +56,7 @@ const SearchForm = ({
           ref={searchInputRef}
           type='search'
           id='default-search'
-          className='block w-full p-4 pr-[88px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+          className='block w-full p-4 pr-[88px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lightPrimary-500 focus:border-lightPrimary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-darkPrimary-500 dark:focus:border-darkPrimary-500'
           placeholder='Search Movies, Shows...'
           required
           value={searchInput}
@@ -65,7 +65,7 @@ const SearchForm = ({
         {!isLoading && (
           <button
             type='submit'
-            className='text-white absolute right-2.5 bottom-2.5 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+            className='text-white absolute right-2.5 bottom-2.5 bg-lightPrimary-600 hover:bg-lightPrimary-700 focus:ring-4 focus:outline-none focus:ring-lightPrimary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-darkPrimary-600 dark:hover:bg-darkPrimary-700 dark:focus:ring-darkPrimary-800'
           >
             Search
           </button>
@@ -74,7 +74,7 @@ const SearchForm = ({
           <button
             disabled
             type='submit'
-            className='text-white absolute right-2.5 bottom-2.5 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+            className='text-white absolute right-2.5 bottom-2.5 bg-lightPrimary-600 hover:bg-lightPrimary-700 focus:ring-4 focus:outline-none focus:ring-lightPrimary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-darkPrimary-600 dark:hover:bg-darkPrimary-700 dark:focus:ring-darkPrimary-800'
           >
             Loading...
           </button>
@@ -82,7 +82,7 @@ const SearchForm = ({
       </div>
       {/* RADIO BUTTON CONTAINER */}
       <ul className='items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg flex dark:bg-gray-700 dark:border-gray-600 dark:text-white my-2 max-w-[400px] mx-auto'>
-        <li className='w-full border-b border-gray-200 border-b-0 border-r dark:border-gray-600'>
+        <li className='w-full border-gray-200 border-b-0 border-r dark:border-gray-600'>
           <div className='flex items-center pl-3'>
             <input
               checked={searchOption === 'shows' ? true : false}
@@ -91,7 +91,7 @@ const SearchForm = ({
               value='shows'
               name='search-option'
               onChange={handleSearchOptionChange}
-              className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+              className='w-4 h-4 text-lightPrimary-600 bg-gray-100 border-gray-300 focus:ring-lightPrimary-500 dark:focus:ring-darkPrimary-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
             />
             <label
               htmlFor='default-radio-1'
@@ -110,7 +110,7 @@ const SearchForm = ({
               value='peoples'
               name='search-option'
               onChange={handleSearchOptionChange}
-              className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+              className='w-4 h-4 text-lightPrimary-600 bg-gray-100 border-gray-300 focus:ring-lightPrimary-500 dark:focus:ring-darkPrimary-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
             />
             <label
               htmlFor='default-radio-2'

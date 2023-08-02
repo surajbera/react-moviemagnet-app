@@ -4,8 +4,6 @@ import { useAppContext } from '../../hooks/useAppContext';
 const ShowsGrid = ({ showsData }) => {
   const { uiMode } = useAppContext();
 
-  console.log(uiMode);
-
   if (showsData.length === 0) return 'No Results!!!';
   return (
     <div className='max-w-screen-xl mx-auto px-4'>
