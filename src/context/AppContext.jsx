@@ -8,10 +8,11 @@ const UNSTAR_SHOW = 'UNSTAR_SHOW';
 const TOGGLE_UI_MODE = 'TOGGLE_UI_MODE';
 
 const storedStarredIds = localStorage.getItem('starredIds');
+const storedUiMode = localStorage.getItem('uiMode');
 
 const initialState = {
   starredIds: storedStarredIds ? JSON.parse(storedStarredIds) : [],
-  uiMode: 'light',
+  uiMode: storedUiMode ? storedUiMode : 'dark',
 };
 
 const appReducer = (state, action) => {
@@ -43,6 +44,10 @@ export const AppContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('starredIds', JSON.stringify(state.starredIds));
   }, [state.starredIds]);
+
+  useEffect(() => {
+    localStorage.setItem('uiMode', state.uiMode);
+  }, [state.uiMode]);
 
   customConsoleLog('State inside AppContext', '#d4d4d8');
 
