@@ -23,9 +23,9 @@ function App() {
         <Routes>
           <Route element={<PageLayout />}>
             <Route path='/' element={<Home />} />
-            <Route path='/starred' element={<Starred />} />
           </Route>
 
+          <Route path='/starred' element={<Starred />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/show/:id' element={<ShowDetail />} />
         </Routes>
