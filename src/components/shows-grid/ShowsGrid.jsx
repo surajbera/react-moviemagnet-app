@@ -20,6 +20,8 @@ const ShowsGrid = ({ showsData }) => {
   const initialStarredIds = JSON.parse(localStorage.getItem('starredIds')) || [];
   const [starredIds, dispatch] = useReducer(starredItemsReducer, initialStarredIds);
 
+  console.log(starredIds);
+
   useEffect(() => {
     localStorage.setItem('starredIds', JSON.stringify(starredIds));
   }, [starredIds]);
