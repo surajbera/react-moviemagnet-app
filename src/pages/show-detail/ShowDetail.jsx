@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { getShowDetailData } from '../../services/tvmazeService';
+import { getShowById } from '../../services/tvmazeService';
 import { useEffect, useState } from 'react';
 import ShowDetailContent from '../../components/show-detail-content/ShowDetailContent';
 
@@ -13,7 +13,7 @@ const ShowDetail = () => {
     const fetchShowDetail = async () => {
       try {
         setIsLoading(true);
-        const data = await getShowDetailData(id);
+        const data = await getShowById(id);
         setShowDetail(data);
       } catch (error) {
         setErrorMessage(error.message);

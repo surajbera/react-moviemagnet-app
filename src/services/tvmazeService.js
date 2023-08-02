@@ -19,7 +19,7 @@ const apiGet = async (queryString) => {
   }
 };
 
-export const getShowDetailData = async (id) => {
+export const getShowById = async (id) => {
   try {
     // Uncomment the next line to simulate an error:
     // throw new Error('Custom error for testing purposes');
