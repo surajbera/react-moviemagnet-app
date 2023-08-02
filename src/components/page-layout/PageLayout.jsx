@@ -10,7 +10,7 @@ const PageLayout = () => {
     <div className='dark:bg-gray-900 dark:text-gray-300 root-wrapper bg-white text-black'>
       <PageTitle title='Box Office' subTitle='Are you looking for a movie or an actor?' />
       <Navbar />
-      <div>
+      <div className='pb-10'>
         <Outlet />
       </div>
     </div>
