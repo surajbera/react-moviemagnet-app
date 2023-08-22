@@ -38,8 +38,8 @@ function App() {
           </Route>
 
           <Route element={<MinimalPageLayout />}>
-            <Route path='*' element={<NotFound />} />
             <Route path='/show/:id' element={<ShowDetail />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
