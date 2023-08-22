@@ -2,7 +2,6 @@
 import { Outlet } from 'react-router-dom';
 
 /* components */
-import Navbar from '../navbar/Navbar';
 import PageTitle from '../page-title/PageTitle';
 
 const MinimalPageLayout = () => {
