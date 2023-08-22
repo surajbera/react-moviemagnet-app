@@ -3,7 +3,7 @@ import { useAppContext } from '../../hooks/useAppContext';
 import EmptyResults from '../empty-results/EmptyResults';
 
 const ShowsGrid = ({ showsData }) => {
-  const { uiMode } = useAppContext();
+  const { uiThemeMode } = useAppContext();
 
   if (showsData.length === 0) return <EmptyResults />;
 

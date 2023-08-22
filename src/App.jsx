@@ -18,15 +18,15 @@ import UiTheme from './components/ui-theme/UiTheme';
 import { useAppContext } from './hooks/useAppContext';
 
 function App() {
-  const { uiMode } = useAppContext();
+  const { uiThemeMode } = useAppContext();
 
   useEffect(() => {
-    if (uiMode === 'dark') {
+    if (uiThemeMode === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [uiMode]);
+  }, [uiThemeMode]);
 
   return (
     <>

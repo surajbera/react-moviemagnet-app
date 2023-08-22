@@ -8,11 +8,11 @@ const UNSTAR_SHOW = 'UNSTAR_SHOW';
 const TOGGLE_UI_MODE = 'TOGGLE_UI_MODE';
 
 const storedStarredIds = localStorage.getItem('starredIds');
-const storedUiMode = localStorage.getItem('uiMode');
+const storedUiMode = localStorage.getItem('uiThemeMode');
 
 const initialState = {
   starredIds: storedStarredIds ? JSON.parse(storedStarredIds) : [],
-  uiMode: storedUiMode ? storedUiMode : 'dark',
+  uiThemeMode: storedUiMode ? storedUiMode : 'dark',
 };
 
 const appReducer = (state, action) => {
@@ -30,7 +30,7 @@ const appReducer = (state, action) => {
     case TOGGLE_UI_MODE:
       return {
         ...state,
-        uiMode: state.uiMode === 'dark' ? 'light' : 'dark',
+        uiThemeMode: state.uiThemeMode === 'dark' ? 'light' : 'dark',
       };
 
     default:
@@ -46,8 +46,8 @@ export const AppContextProvider = ({ children }) => {
   }, [state.starredIds]);
 
   useEffect(() => {
-    localStorage.setItem('uiMode', state.uiMode);
-  }, [state.uiMode]);
+    localStorage.setItem('uiThemeMode', state.uiThemeMode);
+  }, [state.uiThemeMode]);
 
   customConsoleLog('State inside AppContext', '#d4d4d8');
 
@@ -59,12 +59,12 @@ export const AppContextProvider = ({ children }) => {
     dispatch({ type: UNSTAR_SHOW, payload: id });
   };
 
-  const toggleUiMode = () => {
+  const toggleUiThemeMode = () => {
     dispatch({ type: TOGGLE_UI_MODE });
   };
 
   return (
-    <AppContext.Provider value={{ ...state, starShow, unstarShow, toggleUiMode }}>
+    <AppContext.Provider value={{ ...state, starShow, unstarShow, toggleUiThemeMode }}>
       {children}
     </AppContext.Provider>
   );

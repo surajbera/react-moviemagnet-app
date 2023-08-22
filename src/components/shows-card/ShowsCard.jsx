@@ -5,7 +5,7 @@ import { removeHtmlTags } from '../../utils/removeHtmlTags';
 import { AiTwotoneStar, AiOutlineStar } from 'react-icons/ai';
 
 const ShowsCard = ({ data }) => {
-  const { starShow, unstarShow, starredIds, uiMode } = useAppContext();
+  const { starShow, unstarShow, starredIds, uiThemeMode } = useAppContext();
 
   const buttonClasses = 'border-2 border-gray-600 bg-transparent rounded-lg px-6 py-2';
 
@@ -59,7 +59,7 @@ const ShowsCard = ({ data }) => {
           </a>
           <button type='button' className={buttonClasses} onClick={() => handleStarToggle(data.id)}>
             {starredIds.includes(data.id) ? (
-              <AiTwotoneStar size={26} color={uiMode === 'dark' ? '#fde047' : '#4f46e5'} />
+              <AiTwotoneStar size={26} color={uiThemeMode === 'dark' ? '#fde047' : '#4f46e5'} />
             ) : (
               <AiOutlineStar size={26} />
             )}
