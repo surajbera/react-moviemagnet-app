@@ -37,8 +37,10 @@ export default {
         black: '#1e1e1e', // Overrides the default black
       },
       screens: {
-        xs: '500px',
+        extrasmall: '400px',
+        verysmall: '500px',
         sm: '750px',
+        md: '1024px',
       },
     },
   },

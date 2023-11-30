@@ -7,33 +7,35 @@ const ShowDetailContent = ({ data }) => {
   return (
     <div className='max-w-screen-xl mx-auto p-4'>
       {/* Hero Section */}
-      <div className='flex flex-wrap items-center'>
-        <div className='w-full md:w-[35%] rounded-lg h-[550px]'>
+      <div className='flex flex-col items-center md:flex-row'>
+        <div className='w-[450px] rounded-lg h-[300px] extrasmall:h-[350px] md:h-[550px] mx-auto mb-6 max-w-full md:w-[35%]'>
           <img
             src={data.image.original ? data.image.original : NotFoundImg}
             alt={data.name}
             className='rounded-xl w-full h-full object-cover block'
           />
         </div>
-        <div className='mt-4 md:mt-0 md:w-[65%] md:pl-6'>
+        <div className='mt-4 md:mt-0 md:w-[65%] pl-6'>
           <h1 className='text-3xl font-semibold flex'>
-            <span className='inline-flex mr-5'>{data.name}</span>
+            <span className='inline-flex mr-5 text-gray-600 dark:text-gray-300'>{data.name}</span>
             <span className='inline-flex items-center'>
               <span className='inline-flex mr-2'>
                 <AiFillStar color='#fcd34d' />
               </span>
-              <span className='text-xl text-gray-600'>
+              <span className='text-xl text-gray-600 dark:text-gray-300'>
                 {data.rating.average || 'Average rating not available!'}
               </span>
             </span>
           </h1>
 
-          <p className='mt-4 text-lg text-gray-600'>{removeHtmlTags(data.summary, false)}</p>
+          <p className='mt-4 text-lg text-gray-600 dark:text-gray-300'>
+            {removeHtmlTags(data.summary, false)}
+          </p>
           <div className='mt-4 flex flex-wrap space-x-2'>
             {data.genres.map((item) => (
               <span
                 key={item}
-                className='bg-lightPrimary-400 text-white px-3 py-2 rounded-md text-sm'
+                className='bg-lightPrimary-500 dark:bg-darkPrimary-500 text-white px-2 py-1 rounded-md text-sm text-[15px]'
               >
                 {item}
               </span>

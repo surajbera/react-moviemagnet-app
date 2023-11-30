@@ -12,7 +12,7 @@ const PeoplesCard = ({ data }) => {
       </div>
 
       <div className='flex-1 flex flex-col'>
-        <p className='mb-2 text-xl xs:text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+        <p className='mb-2 text-xl verysmall:text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
           {data.name} {data.gender && `(${data.gender})`}
         </p>
         <p className='mb-1 font-normal text-gray-700 dark:text-gray-400'>
