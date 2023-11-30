@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { getShowsByQuery, getPeoplesByQuery } from '../../services/tvmazeService';
-import SearchForm from '../../components/search-form/SearchForm';
-import ShowsGrid from '../../components/shows-grid/ShowsGrid';
-import PeoplesGrid from '../../components/peoples-grid/PeoplesGrid';
-import Loader from '../../components/Loader/Loader';
+
+/* components */
+import { SearchForm, ShowsGrid, PeoplesGrid, Loader } from '../../components';
 
 const Home = () => {
   const [showsData, setShowsData] = useState(null);

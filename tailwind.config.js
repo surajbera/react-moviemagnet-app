@@ -34,6 +34,7 @@ export default {
           900: '#831843',
           950: '#500724',
         },
+        black: '#1e1e1e', // Overrides the default black
       },
       screens: {
         xs: '500px',

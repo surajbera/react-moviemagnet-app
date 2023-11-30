@@ -7,15 +7,15 @@ const ShowDetailContent = ({ data }) => {
   return (
     <div className='max-w-screen-xl mx-auto p-4'>
       {/* Hero Section */}
-      <div className='flex flex-wrap md:flex-nowrap'>
-        <div className='w-full md:w-1/4 mr-4 rounded-lg max-h-[400px]'>
+      <div className='flex flex-wrap items-center'>
+        <div className='w-full md:w-[35%] rounded-lg h-[550px]'>
           <img
             src={data.image.original ? data.image.original : NotFoundImg}
             alt={data.name}
             className='rounded-xl w-full h-full object-cover block'
           />
         </div>
-        <div className='mt-4 md:mt-0 md:w-3/4'>
+        <div className='mt-4 md:mt-0 md:w-[65%] md:pl-6'>
           <h1 className='text-3xl font-semibold flex'>
             <span className='inline-flex mr-5'>{data.name}</span>
             <span className='inline-flex items-center'>

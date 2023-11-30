@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.root-wrapper {
-  min-height: 100vh;
+html {
+  height: 100%;
 }
+
+body {
+  min-height: 100%;
+}
+
+.root-wrapper {
+  min-height: 100dvh;
+}
+
+/* * {
+  background: rgba(0, 255, 0, 0.1);
+} */

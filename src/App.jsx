@@ -3,29 +3,24 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /* pages */
-import Home from './pages/home/Home';
-import Starred from './pages/starred/Starred';
-import NotFound from './pages/notfound/NotFound';
+import { Home, Starred, NotFound, ShowDetail } from './pages';
 
 /* components */
-import PageLayout from './components/page-layout/PageLayout';
-import MinimalPageLayout from './components/minimal-page-layout/MinimalPageLayout';
+import { PageLayout, MinimalPageLayout, UiTheme } from './components';
 
 /* styles */
 import './App.css';
-import ShowDetail from './pages/show-detail/ShowDetail';
-import UiTheme from './components/ui-theme/UiTheme';
-import { useAppContext } from './hooks/useAppContext';
+
+/* context */
+import { useAppContext } from './hooks';
 
 function App() {
   const { uiThemeMode } = useAppContext();
 
   useEffect(() => {
-    if (uiThemeMode === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    uiThemeMode === 'dark'
+      ? document.documentElement.classList.add('dark')
+      : document.documentElement.classList.remove('dark');
   }, [uiThemeMode]);
 
   return (

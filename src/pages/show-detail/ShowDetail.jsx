@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { getShowById } from '../../services/tvmazeService';
 import { useEffect, useState } from 'react';
-import ShowDetailContent from '../../components/show-detail-content/ShowDetailContent';
-import Loader from '../../components/Loader/Loader';
+import { ShowDetailContent, Loader } from '../../components';
 
 const ShowDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +14,7 @@ const ShowDetail = () => {
       try {
         setIsLoading(true);
         const data = await getShowById(id);
+        console.log(data);
         setShowDetail(data);
       } catch (error) {
         setErrorMessage(error.message);
@@ -35,3 +35,10 @@ const ShowDetail = () => {
   );
 };
 export default ShowDetail;
+
+/* 
+  I am creating a movie checker app built with React, simple react app using the tvmaxe api:
+  - ShowDetail is basically a page component.
+  - When the route changes, I am fetching the id from URL, and passing that id to the getShowById function.
+  - API returns data and after getting that data passing it to the ShowDetailContent component.
+*/

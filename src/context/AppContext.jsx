@@ -1,5 +1,5 @@
 import { createContext, useReducer, useEffect } from 'react';
-import { customConsoleLog } from '../utils/customConsoleLog';
+import { customConsoleLog } from '../utils';
 
 export const AppContext = createContext();
 
