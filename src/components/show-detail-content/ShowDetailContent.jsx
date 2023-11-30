@@ -31,7 +31,10 @@ const ShowDetailContent = ({ data }) => {
           <p className='mt-4 text-lg text-gray-600'>{removeHtmlTags(data.summary, false)}</p>
           <div className='mt-4 flex flex-wrap space-x-2'>
             {data.genres.map((item) => (
-              <span key={item} className='bg-blue-200 text-blue-800 px-3 py-1 rounded-full'>
+              <span
+                key={item}
+                className='bg-lightPrimary-400 text-white px-3 py-2 rounded-md text-sm'
+              >
                 {item}
               </span>
             ))}

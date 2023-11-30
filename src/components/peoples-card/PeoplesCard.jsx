@@ -2,7 +2,7 @@ import NotFoundImg from '../../assets/not-found.jpg';
 
 const PeoplesCard = ({ data }) => {
   return (
-    <div className='shadow-lg rounded-lg p-4 dark:border-slate-600 flex flex-col'>
+    <div className='shadow-2xl dark:shadow-gray-600/50 rounded-lg p-4 dark:border-slate-600 flex flex-col'>
       <div className='w-full mx-auto mb-4 h-[300px] max-w-full'>
         <img
           src={data.image?.medium ? data.image.medium : NotFoundImg}

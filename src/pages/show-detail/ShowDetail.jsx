@@ -35,10 +35,3 @@ const ShowDetail = () => {
   );
 };
 export default ShowDetail;
-
-/* 
-  I am creating a movie checker app built with React, simple react app using the tvmaxe api:
-  - ShowDetail is basically a page component.
-  - When the route changes, I am fetching the id from URL, and passing that id to the getShowById function.
-  - API returns data and after getting that data passing it to the ShowDetailContent component.
-*/
