@@ -18,8 +18,8 @@ const ShowsCard = ({ data }) => {
   };
 
   return (
-    <div className='border-2 border-solid border-gray-300 rounded-lg p-4 dark:border-slate-600 flex flex-col'>
-      <div className='w-[200px] mx-auto mb-4 h-[300px] max-w-full'>
+    <div className='shadow-2xl dark:shadow-gray-600/50 rounded-lg p-4 flex flex-col'>
+      <div className='w-full mx-auto mb-4 h-[300px] max-w-full'>
         <img
           src={data.image?.medium ? data.image.medium : NotFoundImg}
           alt={data.name}
